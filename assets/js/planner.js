@@ -72,8 +72,6 @@ $(document).ready(function(){
         col1TimeBox.append(saveDiv);
 
         var saveBtn = $("<i>");
-        //saveBtn.attr("id",`saveId-${hour12}`);
-        //saveBtn.attr("save-id", hour12);
         saveBtn.attr("class","far fa-save exSave");
         saveDiv.append(saveBtn);
  
