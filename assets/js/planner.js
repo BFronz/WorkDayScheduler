@@ -149,8 +149,8 @@ $(document).ready(function(){
    }
  } 
  
-
-  jQuery(".save").on("click", function(event){ 
+// listener
+  $(".save").on("click", function(event){ 
         var index = $(this).attr("value");
         var value = $('#inputId-'+index).val();
         if(value!=""){setEvents(index,value); }
