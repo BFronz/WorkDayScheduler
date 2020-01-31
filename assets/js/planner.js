@@ -4,7 +4,7 @@ $(document).ready(function(){
     // some vars needed
     toDay = moment().format('MMMM Do YYYY');
     var timeNow24 = moment().format('H');
-    timeNow24 =13; // for testing
+    //timeNow24 =13; // for testing & debug
     var timeNow12 = moment().format('h');
     var mainDiv = $(".container"); 
     var storedEventsArray = [];
