@@ -4,7 +4,7 @@ $(document).ready(function(){
     // some vars needed
     toDay = moment().format('MMMM Do YYYY');
     var timeNow24 = moment().format('H');
-    timeNow24 =13; //for testing
+    timeNow24 =13; // for testing
     var timeNow12 = moment().format('h');
     var mainDiv = $(".container"); 
     var storedEventsArray = [];
@@ -58,11 +58,10 @@ $(document).ready(function(){
         col9Timebox.append(colTextArea);
         
 
-        // add save column
+        // add save column , there is a div and button
         var col1TimeBox = $("<div>");
         col1TimeBox.addClass("col-md-1 save"); 
 
-    
         var saveDiv = $("<div>");
         saveDiv.attr("id",`saveId-${hour12}`)
         col1TimeBox.append(saveDiv);
@@ -70,8 +69,8 @@ $(document).ready(function(){
         var saveBtn = $("<i>");
         //saveBtn.attr("id",`saveId-${hour12}`);
         //saveBtn.attr("save-id", hour12);
-        saveBtn.attr("class","far fa-save");
-        col1TimeBox.append(saveBtn);
+        saveBtn.attr("class","far fa-save exSave");
+        saveDiv.append(saveBtn);
  
         tbRow.append(col1TimeBox);
 
@@ -88,7 +87,7 @@ $(document).ready(function(){
      }
 
 
-     // update row colors based on time of day
+     // update color fumction row colors based on time of day
      function setRowColor (curRow, hour, id) { 
         if ( hour < timeNow24) {
             curRow.addClass("past");
@@ -99,7 +98,7 @@ $(document).ready(function(){
         }
     }
 
-    // update storage
+    // update  storage fumction
    function setEvents (index, value){
     console.log("index: " + index + " value: "  + value);
     storedEventsArray.push({indexID:index,idValue:value});
@@ -107,6 +106,7 @@ $(document).ready(function(){
    }
 
 
+  // updates text and added "already happened" 
  function updateText() {
   // Get stored  events
   var storedEvents = JSON.parse(localStorage.getItem("storedEvents"));
@@ -126,7 +126,7 @@ $(document).ready(function(){
 
             hour = getId + 9;                 
             if ( hour < timeNow24) {
-                var txtEx = " <  Already Happened";
+                var txtEx = " > Already Happened";
                 showIt += txtEx;  
              }
 
@@ -142,8 +142,7 @@ $(document).ready(function(){
 
 
 
- // listeners (yes it is ugly)
-    
+  // listeners (yes I know it's is ugly)   
     $("#saveId-0").on( "click", function(event) {
         var index = 0; 
         var value = $('#inputId-'+index).val();
