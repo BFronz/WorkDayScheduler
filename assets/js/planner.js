@@ -114,7 +114,7 @@ $(document).ready(function(){
   // if events put into an array
   if(storedEvents != null) {
      storedEventsArray = storedEvents; 
-     //console.log(storedEvents[0].indexID + " " + storedEvents[0].idValue);
+     console.log(storedEvents[0].indexID + " " + storedEvents[0].idValue);
 
      for (var z = 0; z < storedEvents.length; z++){
          var getId    = storedEvents[z].indexID;
@@ -131,10 +131,9 @@ $(document).ready(function(){
              }
 
             $('#inputId-'+getId).val(showIt);
-
          }  
 
-         //alert("id: " + getId + "  value: " + getValue[getId]);
+         console.log("id: " + getId + "  value: " + getValue[getId]);
      }
    }
  } 
@@ -142,7 +141,7 @@ $(document).ready(function(){
 
 
 
-  // listeners (yes I know it's is ugly)   
+  // listeners (yes I know it's is ugly)  these need delegation 
     $("#saveId-0").on( "click", function(event) {
         var index = 0; 
         var value = $('#inputId-'+index).val();
