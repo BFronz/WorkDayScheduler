@@ -16,6 +16,9 @@ $(document).ready(function(){
     //  display todays date for header    
     $("#currentDay").text(toDay);
 
+    $("saveId-0, #saveId-1, #saveId-2, #saveId-3, #saveId-4, #saveId-5, #saveId-6, #saveId-7, #saveId-8 ").empty();
+
+
      // build rows date, must use 24 hr time so rows are  in order
      for(var i = 9; i <=17; i++) {
 
