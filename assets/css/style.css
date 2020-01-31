@@ -50,12 +50,14 @@ textarea{
   background-color: #06AED5;;
   text-align: center;
   padding-top: 0px;
-  /* border-radius: 15px;  */
+  border-top-right-radius: 5px;  
+  border-bottom-right-radius: 5px;  
   border-left: 1px solid black;
   /* border:  1px solid black; */
 }
 .exSave {
   padding-top: 20px;
+  font-size:24px;
 
 }
 
@@ -91,4 +93,8 @@ textarea{
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+}
+
+.bgWhite {
+  background-color: white;
 }

@@ -59,6 +59,7 @@ $(document).ready(function(){
         
 
         // add save column , there is a div and button
+        // font awesome save icon https://fontawesome.com/license/free
         var col1TimeBox = $("<div>");
         col1TimeBox.addClass("col-md-1 save"); 
 
