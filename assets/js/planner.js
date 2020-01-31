@@ -65,9 +65,10 @@ $(document).ready(function(){
         // font awesome save icon https://fontawesome.com/license/free
         var col1TimeBox = $("<div>");
         col1TimeBox.addClass("col-md-1 save"); 
+        col1TimeBox.attr("value", hour12);
 
         var saveDiv = $("<div>");
-        saveDiv.attr("id",`saveId-${hour12}`)
+        saveDiv.attr("id",`saveId-${hour12}`)       
         col1TimeBox.append(saveDiv);
 
         var saveBtn = $("<i>");
@@ -85,10 +86,11 @@ $(document).ready(function(){
         // call row color function
         setRowColor(tbRow, i,  hour12);
 
-        // update text
-        updateText()
-
      }
+
+
+    // update text
+    updateText();  
 
 
      // update color fumction row colors based on time of day
@@ -102,12 +104,12 @@ $(document).ready(function(){
         }
     }
 
-    // update  storage fumction
-   function setEvents (index, value){
-    console.log("index: " + index + " value: "  + value);
-    storedEventsArray.push({indexID:index,idValue:value});
-    localStorage.setItem("storedEvents", JSON.stringify(storedEventsArray));
-   }
+        // update  storage fumction
+    function setEvents (index, value){
+        console.log("index: " + index + " value: "  + value);
+        storedEventsArray.push({indexID:index,idValue:value});
+        localStorage.setItem("storedEvents", JSON.stringify(storedEventsArray));
+     }
 
 
   // updates text and added "already happened" 
@@ -120,6 +122,8 @@ $(document).ready(function(){
      storedEventsArray = storedEvents; 
      console.log(storedEvents[0].indexID + " " + storedEvents[0].idValue);
 
+
+       
      for (var z = 0; z < storedEvents.length; z++){
          var getId    = storedEvents[z].indexID;
          getValue[getId] = storedEvents[z].idValue;
@@ -128,7 +132,10 @@ $(document).ready(function(){
             textAreaId = '#inputId-'+getId;
             var showIt =  getValue[getId];
 
-            hour = getId + 9;                 
+
+            hour = parseInt(getId) + 9;                
+            console.log("length: " + storedEvents.length + " past check: " +  hour + " < " + timeNow24 ); 
+
             if ( hour < timeNow24) {
                 var txtEx = " > Already Happened";
                 showIt += txtEx;  
@@ -143,56 +150,11 @@ $(document).ready(function(){
  } 
  
 
-
-
-  // listeners (yes I know it's is ugly)  these need delegation 
-    $("#saveId-0").on( "click", function(event) {
-        var index = 0; 
+  jQuery(".save").on("click", function(event){ 
+        var index = $(this).attr("value");
         var value = $('#inputId-'+index).val();
         if(value!=""){setEvents(index,value); }
     });
-    $("#saveId-1").on( "click", function(event) {
-        var index = 1; 
-        var value = $('#inputId-'+index).val();
-        if(value!=""){ setEvents(index,value);  }
-    });
-    $("#saveId-2").on( "click", function(event) {
-        var index = 2; 
-        var value = $('#inputId-'+index).val();
-        if(value!=""){ setEvents(index,value); }
-    });
-    $("#saveId-3").on( "click", function(event) {
-        var index = 3; 
-        var value = $('#inputId-'+index).val();
-        if(value!=""){ setEvents(index,value); }
-    }); 
-    $("#saveId-4").on( "click", function(event) {
-        var index = 4; 
-        var value = $('#inputId-'+index).val();
-        if(value!=""){ setEvents(index,value); }
-    });    
-    $("#saveId-5").on( "click", function(event) {
-        var index = 5; 
-        var value = $('#inputId-'+index).val();
-        if(value!=""){ setEvents(index,value); }
-    }); 
-    $("#saveId-6").on( "click", function(event) {
-        var index = 6; 
-        var value = $('#inputId-'+index).val();
-        if(value!=""){ setEvents(index,value); }
-    }); 
-    $("#saveId-7").on( "click", function(event) {
-        var index = 7; 
-        var value = $('#inputId-'+index).val();
-        if(value!=""){ setEvents(index,value); }
-    }); 
-    $("#saveId-8").on( "click", function(event) {
-        var index = 8; 
-        var value = $('#inputId-'+index).val();
-        if(value!=""){ setEvents(index,value); }
-    });                    
-    
-    
 
 
 });
