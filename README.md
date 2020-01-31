@@ -27,4 +27,4 @@ Moment.js library used to work  date and time.
 ## Acknowledgments
 
 * Rutgers Bootcamp Team
-* Font provoded by Font Awesome (https://fontawesome.com/license/free)
+* Icon provoded by Font Awesome (https://fontawesome.com/license/free)
