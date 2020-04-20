@@ -21,6 +21,9 @@ Timeblocks dynamically created using JQuery & Javascript.
 Moment.js library used to work  date and time.
 
 
+<img src="workdayscheduler.png" alt="workdayscheduler">
+
+
 
 
 
